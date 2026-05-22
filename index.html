@@ -48,25 +48,38 @@
             width: 100%;
         }
 
-        /* ตกแต่งหัวข้อหลัก - ปรับขนาดและบังคับให้อยู่บรรทัดเดียวอย่างสวยงาม */
+        /* ตกแต่งหัวข้อหลัก - แบบแยกเป็น 2 บรรทัดสวยงามตามหลัก UI/UX */
         .header-title {
             font-weight: 700;
-            color: #1e1b4b;
             letter-spacing: -0.5px;
-            font-size: 1.35rem; /* ปรับขนาดจาก 1.75rem ลงมาให้อยู่ในบรรทัดเดียวกัน */
-            white-space: nowrap; /* บังคับให้ข้อความอยู่ในบรรทัดเดียวกัน */
-            overflow: hidden;
-            text-overflow: ellipsis; /* แสดง ... หากล้นหน้าจอจริงๆ */
             text-align: center;
+            line-height: 1.35;
             display: block;
             width: 100%;
+        }
+
+        /* บรรทัดที่ 1: ระบบตอบรับ */
+        .header-title-line1 {
+            display: block;
+            font-size: 1.55rem;
+            color: #4f46e5; /* ใช้สีม่วงครามไล่ระดับเพื่อดึงสายตา */
+            font-weight: 800;
+        }
+
+        /* บรรทัดที่ 2: รายละเอียดการประชุม */
+        .header-title-line2 {
+            display: block;
+            font-size: 1.15rem;
+            color: #1e1b4b; /* สีน้ำเงินเข้มให้อารมณ์เป็นทางการและน่าเชื่อถือ */
+            font-weight: 600;
+            margin-top: 3px;
         }
 
         /* ปรับแต่งหัวข้อย่อย - บังคับให้อยู่บรรทัดเดียว */
         .small-text {
             font-size: 0.95rem;
             color: #64748b;
-            white-space: nowrap; /* บังคับให้อยู่ในบรรทัดเดียวกัน */
+            white-space: nowrap;
             overflow: hidden;
             text-overflow: ellipsis;
             text-align: center;
@@ -295,7 +308,7 @@
             color: #334155;
         }
 
-        /* Media Queries เพื่อรองรับอุปกรณ์หน้าจอเล็กเป็นพิเศษ และจำกัดขนาดไม่ให้ตัวหนังสือหัวข้อตัดบรรดูด */
+        /* Media Queries เพื่อรองรับอุปกรณ์หน้าจอเล็กเป็นพิเศษ และจำกัดขนาดไม่ให้ตัวหนังสือหัวข้อล้นหน้าจอ */
         @media (max-width: 576px) {
             body {
                 padding: 10px;
@@ -308,9 +321,12 @@
             .p-4-custom {
                 padding: 20px 15px !important;
             }
-            /* ลดขนาดตัวอักษรของหัวข้อเพื่อให้พอดีอยู่ในบรรทัดเดียวกันบนจอขนาดเล็ก */
-            .header-title {
-                font-size: 0.9rem !important;
+            /* ปรับขนาดตัวอักษรของหัวข้อเพื่อให้จัดวางสวยงามลงตัวบนหน้าจอมือถือ */
+            .header-title-line1 {
+                font-size: 1.35rem !important;
+            }
+            .header-title-line2 {
+                font-size: 0.98rem !important;
             }
             .small-text {
                 font-size: 0.72rem !important;
@@ -354,12 +370,15 @@
                 
                 <div class="p-4 p-md-5 p-4-custom">
                     
-                    <!-- ส่วนหัวฟอร์มสวยงามและเป็นทางการ -->
+                    <!-- ส่วนหัวฟอร์มสวยงามและเป็นทางการ (ปรับแต่งแยกเป็น 2 บรรทัดเรียบร้อย) -->
                     <div class="text-center mb-4">
                         <div class="header-icon">
                             <i class="fa-regular fa-calendar-check"></i>
                         </div>
-                        <h1 class="header-title mb-2">ระบบตอบรับเข้าร่วมการประชุมผู้บริหารในสหวิทยาเขตอันดามัน</h1>
+                        <h1 class="header-title mb-2">
+                            <span class="header-title-line1">ระบบตอบรับ</span>
+                            <span class="header-title-line2">เข้าร่วมประชุมผู้บริหารในสหวิทยาเขตอันดามัน</span>
+                        </h1>
                         <p class="text-muted mb-0 small-text">วันพุธ ที่ 27 พฤษภาคม 2569 ณ โรงเรียนละงูพิทยาคม</p>
                     </div>
 
@@ -527,7 +546,7 @@
 <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
 
 <script>
-    // 🔴 กรุณานำ URL เว็บแอปของ Google Apps Script ที่ Deploy เสร็จแล้วมาใส่ไว้ที่ช่องด้านล่างนี้แทนที่ข้อความเดิมครับ
+    // 🔴 สำหรับส่งข้อมูลไปยัง Google Apps Script (GAS) หลังบ้านตามที่คุณใช้เพื่อความไหลลื่นของระบบ
     const GAS_URL = "https://script.google.com/macros/s/AKfycbwd8zHT1Tgl1ra_q4n5czsgE6_I3-PRMd6C8zZcsvFclRxLxQMM2695cXtSqvHdv31I/exec";
 
     const statusAccept = document.getElementById('statusAccept');
