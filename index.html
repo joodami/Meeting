@@ -48,25 +48,43 @@
             width: 100%;
         }
 
-        /* ตกแต่งหัวข้อหลัก */
+        /* ตกแต่งหัวข้อหลัก - ปรับขนาดและบังคับให้อยู่บรรทัดเดียวอย่างสวยงาม */
         .header-title {
             font-weight: 700;
             color: #1e1b4b;
             letter-spacing: -0.5px;
-            font-size: 1.75rem;
+            font-size: 1.35rem; /* ปรับขนาดจาก 1.75rem ลงมาให้อยู่ในบรรทัดเดียวกัน */
+            white-space: nowrap; /* บังคับให้ข้อความอยู่ในบรรทัดเดียวกัน */
+            overflow: hidden;
+            text-overflow: ellipsis; /* แสดง ... หากล้นหน้าจอจริงๆ */
+            text-align: center;
+            display: block;
+            width: 100%;
+        }
+
+        /* ปรับแต่งหัวข้อย่อย - บังคับให้อยู่บรรทัดเดียว */
+        .small-text {
+            font-size: 0.95rem;
+            color: #64748b;
+            white-space: nowrap; /* บังคับให้อยู่ในบรรทัดเดียวกัน */
+            overflow: hidden;
+            text-overflow: ellipsis;
+            text-align: center;
+            display: block;
+            width: 100%;
         }
 
         .header-icon {
             background: linear-gradient(135deg, #e0e7ff 0%, #cffafe 100%);
             color: #4f46e5;
-            width: 64px;
-            height: 64px;
+            width: 60px;
+            height: 60px;
             display: flex;
             align-items: center;
             justify-content: center;
             border-radius: 50%;
             margin: 0 auto 12px;
-            font-size: 26px;
+            font-size: 24px;
         }
 
         /* ตกแต่งฟิลด์กรอกข้อมูลแบบ Floating Labels */
@@ -277,7 +295,7 @@
             color: #334155;
         }
 
-        /* Media Queries เพื่อรองรับอุปกรณ์หน้าจอเล็กเป็นพิเศษ (เช่น มือถือแนวตั้ง 320px - 480px) */
+        /* Media Queries เพื่อรองรับอุปกรณ์หน้าจอเล็กเป็นพิเศษ และจำกัดขนาดไม่ให้ตัวหนังสือหัวข้อตัดบรรดูด */
         @media (max-width: 576px) {
             body {
                 padding: 10px;
@@ -290,13 +308,18 @@
             .p-4-custom {
                 padding: 20px 15px !important;
             }
+            /* ลดขนาดตัวอักษรของหัวข้อเพื่อให้พอดีอยู่ในบรรทัดเดียวกันบนจอขนาดเล็ก */
             .header-title {
-                font-size: 1.35rem;
+                font-size: 0.9rem !important;
+            }
+            .small-text {
+                font-size: 0.72rem !important;
             }
             .header-icon {
-                width: 54px;
-                height: 54px;
-                font-size: 22px;
+                width: 50px;
+                height: 50px;
+                font-size: 20px;
+                margin-bottom: 8px;
             }
             .form-floating > label {
                 font-size: 14px;
