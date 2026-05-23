@@ -65,12 +65,12 @@
             margin-bottom: 2px !important; /* จัดช่องว่างระหว่างบรรทัดแรกและบรรทัดที่สองให้ชิดกระชับสวยงาม */
         }
 
-        /* ตกแต่งและควบคุมหัวข้อบรรทัดที่สอง ให้พอดีบรรทัดเดียวในทุกหน้าจอเสมอ */
+        /* ตกแต่งและควบคุมหัวข้อบรรทัดที่สอง ให้พอดีบรรทัดเดียวในทุกหน้าจอเสมอ และขยายให้ใหญ่ขึ้นบนมือถือ */
         .header-title-2 {
             font-weight: 600;
             color: #1e1b4b;
             letter-spacing: -0.3px;
-            font-size: clamp(10.5px, 3.2vw, 1.35rem);
+            font-size: clamp(13px, 3.8vw, 1.45rem); /* ปรับความชัดเจนของฟอนต์ขั้นต่ำบนมือถือจากเดิม 10.5px เป็น 13px */
             white-space: nowrap;
             overflow: hidden;
             text-overflow: ellipsis;
@@ -82,9 +82,9 @@
             margin-bottom: 10px !important; /* จัดช่องว่างห่างจากวันที่ประชุมให้สวยงามไม่ห่างจนเกินไป */
         }
 
-        /* วันที่และสถานที่ */
+        /* วันที่และสถานที่ปรับขนาดให้ใหญ่ขึ้นคมชัดขึ้นบนอุปกรณ์พกพา */
         .small-text {
-            font-size: clamp(10px, 2.8vw, 0.95rem);
+            font-size: clamp(11.5px, 3.2vw, 1.05rem); /* ปรับขนาดขั้นต่ำจากเดิม 10px เป็น 11.5px ชัดเจนขึ้นมาก */
             white-space: nowrap;
             overflow: hidden;
             text-overflow: ellipsis;
@@ -452,7 +452,7 @@
             document.getElementById('modalIcon').innerHTML = '<div class="modal-icon-error"><i class="fa-solid fa-circle-exclamation"></i></div>';
             document.getElementById('modalTitle').className = "fw-bold text-danger";
             document.getElementById('modalTitle').innerText = "เกิดข้อผิดพลาดในการส่ง";
-            document.getElementById('modalMessage').innerText = "เครือข่ายขัดข้องหรือไม่สามารถเข้าถึงเซิร์ฟเวอร์ได้ในขณะนี้ กรุณาลองใหม่อีกครั้ง";
+            document.getElementById('modalMessage').innerText = "เครือข่ายขันข้องหรือไม่สามารถเข้าถึงเซิร์ฟเวอร์ได้ในขณะนี้ กรุณาลองใหม่อีกครั้ง";
             document.getElementById('modalSummaryBox').classList.add('d-none');
 
             const statusModal = new bootstrap.Modal(document.getElementById('statusModal'));
